@@ -17,6 +17,7 @@ var server = http.createServer(app);
 
 // Create the settings object - see default settings.js file for other options
 var settings = {
+    flowFile: 'flows.json',
     httpAdminRoot:"/red",
     httpNodeRoot: "/",
     userDir: path.join(__dirname, '.nodered'),
