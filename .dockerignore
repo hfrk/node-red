@@ -1,0 +1,13 @@
+# Docker-related.
+**/.dockerignore
+**/Dockerfile
+
+# git-related.
+**/.git
+**/.gitignore
+
+# node-specific
+**/node_modules
+
+#sensitive
+**/.env

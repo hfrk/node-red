@@ -115,7 +115,7 @@
     {
         "id": "9db69a70d0f02fa3",
         "type": "ui_group",
-        "name": "POST to /api and see the payload here...",
+        "name": "POST to /endpoint and see the payload here...",
         "tab": "39b7f90507a7efbf",
         "order": 1,
         "disp": true,
@@ -203,7 +203,8 @@
         "y": 140,
         "wires": [
             [
-                "9fb25a107313d7c2"
+                "9fb25a107313d7c2",
+                "68cf3390684cdfd8"
             ]
         ]
     },
@@ -270,5 +271,82 @@
                 "974d8758a804d9f3"
             ]
         ]
+    },
+    {
+        "id": "68cf3390684cdfd8",
+        "type": "exec",
+        "z": "6e6febc286336da2",
+        "command": "cd /; ls",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 260,
+        "y": 340,
+        "wires": [
+            [
+                "b3355df45d2780c6"
+            ],
+            [
+                "01939fa37cf063c5"
+            ],
+            [
+                "c4882d08e1257699"
+            ]
+        ]
+    },
+    {
+        "id": "b3355df45d2780c6",
+        "type": "ui_text",
+        "z": "6e6febc286336da2",
+        "group": "46abc500f040cc20",
+        "order": 0,
+        "width": "4",
+        "height": "4",
+        "name": "",
+        "label": "stdout",
+        "format": "{{msg.payload}}",
+        "layout": "col-center",
+        "className": "",
+        "x": 590,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "01939fa37cf063c5",
+        "type": "ui_text",
+        "z": "6e6febc286336da2",
+        "group": "46abc500f040cc20",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "stderr",
+        "format": "{{msg.payload}}",
+        "layout": "col-center",
+        "className": "",
+        "x": 590,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "c4882d08e1257699",
+        "type": "ui_text",
+        "z": "6e6febc286336da2",
+        "group": "46abc500f040cc20",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "return code",
+        "format": "{{msg.payload}}",
+        "layout": "col-center",
+        "className": "",
+        "x": 610,
+        "y": 380,
+        "wires": []
     }
 ]
