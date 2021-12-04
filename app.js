@@ -1,24 +1,30 @@
 require('dotenv').config();
 
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
-var http = require('http');
-var RED = require("node-red");
+let express = require('express');
+let path = require('path');
+let cookieParser = require('cookie-parser');
+let logger = require('morgan');
+let http = require('http');
+let RED = require("node-red");
 
-var app = express();
+let app = express();
 
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(express.static(path.join(__dirname, 'public')));
+
+app.get('/', function(req, res, next) {
+    res.status(200);
+    res.sendFile(path.join(__dirname, 'public/index.html'));
+});
 
 // Create a server
-var server = http.createServer(app);
+let server = http.createServer(app);
 
 // Create the settings object - see default settings.js file for other options
-var settings = {
+let settings = {
     flowFile: 'flows.json',
     flowFilePretty: true,
     adminAuth: {
